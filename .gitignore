@@ -1,33 +1,59 @@
-# Datasets (large, download via scripts instead of committing)
-data/raw/**
-data/processed/**
-!data/raw/.gitkeep
-!data/processed/.gitkeep
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.so
+.venv/
+venv/
+env/
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
 
-# Model weights
-models/checkpoints/**
+# --- Jupyter ---
+.ipynb_checkpoints/
+
+# --- Datasets (too large / not reproducible to commit — document download steps in README instead) ---
+data/
+datasets/
+ISL-CSLTR/
+CISLR/
+data/splits/
+data/splits/*.csv
+*.zip
+*.tar
+*.tar.gz
+
+# --- Model checkpoints / weights (large binaries — don't commit) ---
+checkpoints/
 *.pt
 *.pth
 *.ckpt
 *.onnx
+*.h5
 
-# Python
-__pycache__/
-*.pyc
-.venv/
-venv/
-*.egg-info/
+# --- MediaPipe pretrained task bundles (large binaries, downloaded not authored) ---
+models/mediapipe/*.task
+*.task
 
-# Node / frontend
-frontend/node_modules/
-frontend/.next/
-frontend/out/
+# --- Frontend (if/when Next.js is scaffolded) ---
+node_modules/
+.next/
+out/
+*.local
 
-# OS / editor
+# --- Logs / run artifacts ---
+*.log
+logs/
+runs/
+wandb/
+
+# --- Editor / OS ---
 .DS_Store
 .vscode/
 .idea/
+*.swp
 
-# Env files
+# --- Secrets ---
 .env
 .env.local
+*.pem
