@@ -1,0 +1,14 @@
+# Best-guess requirements file based on this project's known stack (MediaPipe keypoints,
+# BiLSTM+CTC in PyTorch, FastAPI/WebSocket backend). Verify against what's actually
+# installed in your .venv before committing — run:
+#   pip freeze > requirements.txt
+# from inside your activated virtual environment to get the exact, real versions.
+
+mediapipe>=0.10
+opencv-python>=4.8
+numpy>=1.24
+torch>=2.0
+fastapi>=0.110
+uvicorn[standard]>=0.29
+websockets>=12.0
+pydantic>=2.0

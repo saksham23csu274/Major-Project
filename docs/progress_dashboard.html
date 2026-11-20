@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>ISL Translation System — Project Progress</title>
+<style>
+  :root {
+    --bg: #0f1419;
+    --card-bg: #1a2029;
+    --border: #2a3140;
+    --text: #e6e9ef;
+    --text-dim: #8b93a3;
+    --accent: #4f8ef7;
+    --done: #3ddc84;
+    --pending: #3a4152;
+  }
+  * { box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    margin: 0;
+    padding: 40px 24px;
+  }
+  .container { max-width: 900px; margin: 0 auto; }
+  h1 { font-size: 1.6rem; margin-bottom: 4px; }
+  .subtitle { color: var(--text-dim); font-size: 0.9rem; margin-bottom: 32px; }
+
+  .overall-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 28px;
+    margin-bottom: 32px;
+    text-align: center;
+  }
+  .overall-pct {
+    font-size: 3.2rem;
+    font-weight: 700;
+    color: var(--accent);
+    line-height: 1;
+  }
+  .overall-label {
+    color: var(--text-dim);
+    margin-top: 6px;
+    font-size: 0.95rem;
+  }
+  .overall-bar-track {
+    background: var(--pending);
+    border-radius: 8px;
+    height: 14px;
+    margin-top: 20px;
+    overflow: hidden;
+  }
+  .overall-bar-fill {
+    background: linear-gradient(90deg, var(--accent), var(--done));
+    height: 100%;
+    border-radius: 8px;
+    transition: width 0.3s ease;
+  }
+
+  .phase-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin-bottom: 16px;
+  }
+  .phase-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  .phase-name { font-weight: 600; font-size: 1.05rem; }
+  .phase-pct { color: var(--text-dim); font-size: 0.9rem; }
+  .phase-bar-track {
+    background: var(--pending);
+    border-radius: 6px;
+    height: 8px;
+    overflow: hidden;
+    margin-bottom: 14px;
+  }
+  .phase-bar-fill {
+    background: var(--done);
+    height: 100%;
+    border-radius: 6px;
+  }
+  .check-list { list-style: none; margin: 0; padding: 0; }
+  .check-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 5px 0;
+    font-size: 0.92rem;
+  }
+  .check-icon {
+    width: 18px; height: 18px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.7rem;
+    font-weight: bold;
+  }
+  .check-icon.done { background: var(--done); color: #0f1419; }
+  .check-icon.pending { background: var(--pending); color: var(--text-dim); }
+  .check-text.done { color: var(--text); }
+  .check-text.pending { color: var(--text-dim); }
+
+  .footer {
+    text-align: center;
+    color: var(--text-dim);
+    font-size: 0.8rem;
+    margin-top: 32px;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>Real-Time Sentence-Level ISL Translation System</h1>
+  <div class="subtitle">Project progress — generated 2026-09-24 09:25</div>
+
+  <div class="overall-card">
+    <div class="overall-pct">74%</div>
+    <div class="overall-label">Overall project completion</div>
+    <div class="overall-bar-track">
+      <div class="overall-bar-fill" style="width: 73.7%"></div>
+    </div>
+  </div>
+
+  
+  <div class="phase-card">
+    <div class="phase-header">
+      <div class="phase-name">Phase 1 — Data Pipeline</div>
+      <div class="phase-pct">83% (5/6)</div>
+    </div>
+    <div class="phase-bar-track">
+      <div class="phase-bar-fill" style="width: 83.3%"></div>
+    </div>
+    <ul class="check-list">
+      
+      <li class="check-item">
+        <span class="check-icon done">&#10003;</span>
+        <span class="check-text done">ISL-CSLTR downloaded</span>
+      </li>
+
+      <li class="check-item">
+        <span class="check-icon done">&#10003;</span>
+        <span class="check-text done">CISLR downloaded</span>
+      </li>
+
+      <li class="check-item">
+        <span class="check-icon pending"></span>
+        <span class="check-text pending">Fingerspelling dataset downloaded (supplementary)</span>
+      </li>
+
+      <li class="check-item">
+        <span class="check-icon done">&#10003;</span>
+        <span class="check-text done">Clip index built (ISL-CSLTR sentence-level)</span>
+      </li>
+
+      <li class="check-item">
+        <span class="check-icon done">&#10003;</span>
+        <span class="check-text done">Keypoints extracted from clips</span>
+      </li>
+
+      <li class="check-item">
+        <span class="check-icon done">&#10003;</span>
+        <span class="check-text done">Train/val/test signer-based splits created</span>
+      </li>
+
+    </ul>
+  </div>
+
+  <div class="phase-card">
+    <div class="phase-header">
+      <div class="phase-name">Phase 2 — Baseline + Continuous Sequence Model</div>
+      <div class="phase-pct">100% (5/5)</div>
+    </div>
+    <div class="phase-bar-track">
+      <div class="phase-bar-fill" style="width: 100.0%"></div>
+    </div>
+    <ul class="check-list">
+      
+      <li class="check-item">
+        <span class="check-icon done">&#10003;</span>
+        <span class="check-text done">Baseline (isolated-sign) model code written</span>
+      </li>
+
+      <li class="check-item">
+        <span class="check-icon done">&#10003;</span>
+        <span class="check-text done">Baseline model trained (checkpoint saved)</span>
+      </li>
+
+      <li class="check-item">
+        <span class="check-icon done">&#10003;</span>
+        <span class="check-text done">BiLSTM+CTC model code written</span>
+      </li>
+
+      <li class="check-item">
+        <span class="check-icon done">&#10003;</span>
+        <span class="check-text done">CTC model pretrained on CISLR</span>
+      </li>
+
+      <li class="check-item">
+        <span class="check-icon done">&#10003;</span>
+        <span class="check-text done">CTC model fine-tuned on ISL-CSLTR</span>
+      </li>
+
+    </ul>
+  </div>
+
+  <div class="phase-card">
+    <div class="phase-header">
+      <div class="phase-name">Phase 3 — Translation Layer</div>
+      <div class="phase-pct">100% (2/2)</div>
+    </div>
+    <div class="phase-bar-track">
+      <div class="phase-bar-fill" style="width: 100.0%"></div>
+    </div>
+    <ul class="check-list">
+      
+      <li class="check-item">
+        <span class="check-icon done">&#10003;</span>
+        <span class="check-text done">Rule-based gloss reordering implemented</span>
+      </li>
+
+      <li class="check-item">
+        <span class="check-icon done">&#10003;</span>
+        <span class="check-text done">Translation layer unit tests written</span>
+      </li>
+
+    </ul>
+  </div>
+
+  <div class="phase-card">
+    <div class="phase-header">
+      <div class="phase-name">Phase 4 — Backend + Frontend Integration</div>
+      <div class="phase-pct">60% (3/5)</div>
+    </div>
+    <div class="phase-bar-track">
+      <div class="phase-bar-fill" style="width: 60.0%"></div>
+    </div>
+    <ul class="check-list">
+      
+      <li class="check-item">
+        <span class="check-icon done">&#10003;</span>
+        <span class="check-text done">FastAPI app entrypoint exists</span>
+      </li>
+
+      <li class="check-item">
+        <span class="check-icon done">&#10003;</span>
+        <span class="check-text done">WebSocket streaming endpoint implemented</span>
+      </li>
+
+      <li class="check-item">
+        <span class="check-icon done">&#10003;</span>
+        <span class="check-text done">Inference pipeline (sliding window / incremental decode) implemented</span>
+      </li>
+
+      <li class="check-item">
+        <span class="check-icon pending"></span>
+        <span class="check-text pending">Frontend project scaffolded (Next.js)</span>
+      </li>
+
+      <li class="check-item">
+        <span class="check-icon pending"></span>
+        <span class="check-text pending">Frontend webcam + client-side MediaPipe integration</span>
+      </li>
+
+    </ul>
+  </div>
+
+  <div class="phase-card">
+    <div class="phase-header">
+      <div class="phase-name">Phase 5 — Evaluation</div>
+      <div class="phase-pct">0% (0/3)</div>
+    </div>
+    <div class="phase-bar-track">
+      <div class="phase-bar-fill" style="width: 0.0%"></div>
+    </div>
+    <ul class="check-list">
+      
+      <li class="check-item">
+        <span class="check-icon pending"></span>
+        <span class="check-text pending">WER / accuracy results recorded</span>
+      </li>
+
+      <li class="check-item">
+        <span class="check-icon pending"></span>
+        <span class="check-text pending">Latency measurements recorded</span>
+      </li>
+
+      <li class="check-item">
+        <span class="check-icon pending"></span>
+        <span class="check-text pending">Unseen-signer generalization results recorded</span>
+      </li>
+
+    </ul>
+  </div>
+
+  <div class="phase-card">
+    <div class="phase-header">
+      <div class="phase-name">Phase 6 — Polish + Documentation/Report</div>
+      <div class="phase-pct">50% (1/2)</div>
+    </div>
+    <div class="phase-bar-track">
+      <div class="phase-bar-fill" style="width: 50.0%"></div>
+    </div>
+    <ul class="check-list">
+      
+      <li class="check-item">
+        <span class="check-icon done">&#10003;</span>
+        <span class="check-text done">Architecture decisions documented</span>
+      </li>
+
+      <li class="check-item">
+        <span class="check-icon pending"></span>
+        <span class="check-text pending">Final report drafted</span>
+      </li>
+
+    </ul>
+  </div>
+
+
+  <div class="footer">
+    This page reflects the actual state of the project folder at generation time.
+    Re-run <code>python scripts/progress_dashboard.py</code> and refresh to update.
+  </div>
+</div>
+</body>
+</html>
